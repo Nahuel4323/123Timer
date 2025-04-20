@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
 
     function cargarData(){
         const date = new Date();
@@ -9,13 +9,15 @@ window.addEventListener("DOMContentLoaded", () => {
         const hora = date.getHours();
         const minutos = date.getMinutes();
 
-        const diaSemanas = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+        const diaSemanas = ["Domingo", "Lunes", "Martes","Miercoles", "Jueves", "Viernes", "Sabado"];
         const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-        document.getElementById("dia").innerHTML = diaSemanas[dia - 1];
+        document.getElementById("dia").innerHTML = diaSemanas[dia];
         document.getElementById("mes").innerHTML = meses[mes];
         document.getElementById("diaDelMes").innerHTML = diaDelMes;
         document.getElementById("anio").innerHTML = anio;
+        document.getElementById("Alarma-horas").innerHTML = hora < 10 ? "0" + hora : hora;
+        document.getElementById("Alarma-minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
     }
 
     cargarData();

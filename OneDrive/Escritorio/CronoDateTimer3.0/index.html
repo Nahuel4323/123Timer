@@ -10,8 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Estilos/styles.css">
-    <script src="JavaScript/header.js" defer></script>
     <link rel="stylesheet" href="Estilos/alarma.css">
+    <script src="JavaScript/header.js" defer></script>
+    <script src="JavaScript/date.js" defer></script>
+    
 </head>
 <style>
     body{
@@ -36,33 +38,19 @@
 
     }
     
-    .nav-item:hover:first-child{
-        box-shadow: inset 0 -4px 0 #14AEE6; 
-    }
-
     .nav-item:first-child:hover .nav-link-style {
     color: #14AEE6 !important;  
     }
 
-    .nav-item:nth-child(2):hover {
-        box-shadow: inset 0 -4px 0 #43D688;
-    }
 
     .nav-item:nth-child(2):hover .nav-link-style {
         color: #43D688 !important;  
-    }
-
-    .nav-item:nth-child(3):hover {
-        box-shadow: inset 0 -4px 0 #D64366;
     }
 
     .nav-item:nth-child(3):hover .nav-link-style {
         color: #D64366 !important;  
     }
 
-    .nav-item:nth-child(4):hover {
-        box-shadow: inset 0 -4px 0 #F9C94D;
-    }
     .nav-item:nth-child(4):hover .nav-link-style {
         color:  #F9C94D !important;  
     }
@@ -105,118 +93,24 @@
         font-weight: 500;
     }
 
-
+/*Estilos de los numeros y puntos del Temporizador */
     .number, .points{
         font-size: 220px;
         font-weight: 700;
         color: #21232F;
     }
-
+/*Estilos para las filas en general creadas */
     .row{
         flex-wrap: nowrap;
         background-color: transparent;
         min-width: 100%;
         padding: 0 700px;
         }
-        .contenedor{
-    min-height: 500px;
+
+
+footer{
     position: absolute;
-    top: auto;
-    left: 0;
-    z-index: 50;
-    border-bottom: 4px solid #EC2C71 ;
-}
-
-#startAlarm{
-    background-color: #43D688;
-    border: none;
-    padding: 10px 0;
-}
-
-#startAlarm:hover{
-    background-color: #329560;
-}
-
-#resetAlarm{
-    background-color: #8495B6;
-    border: none;
-    padding: 10px 0;
-}
-#resetAlarm:hover{
-    background-color: #7b8aa9;
-}
-
-#SettingAlarm{
-    background-color: #EC2C71;
-    border: none;
-    padding: 10px 0;
-}
-#SettingAlarm:hover{
-    background-color:#6c1334 ;
-}
-
-.contenedorSetting{
-    position: absolute;
-    top: 95%;
-    left: 0;
-    transition: transform 0.5s linear;
-
-    z-index: 20;
-}
-
-
-.form-control{
-    width: 200px;
-    margin-right: 15px;
-    padding: 10px;
-}
-
-.form-control::placeholder{
-    color: #b2b2b2;
-    font-weight: 500;
-    font-size: 18px;
-}
-
-.dropdown:hover,
-.dropdown:active,
-.dropdown:focus{
-    border: none
-}
-.button-dropdown{
-    outline: none;
-    border: 1px solid #e1dede;
-    box-shadow: none;
-    background-color: white;
-    padding:5px;
-    text-align: center;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 500;
-    color:#b2b2b2 ;
-
-}
-.activeSound, .activeMessage{
-    opacity: 0.5;
-}
-
-.activeSetting{
-    transform: translateY(-500px);
-}
-.activeSetting-info{
-    transform: translateY(300px);
-}
-.container-info{
-    position: absolute;
-    top: 90%;
-    left: 0;
-    z-index: 10;
-    margin-left: 300px;
-    transition: all 500ms linear;
+    bottom: -1000px;
 }
 </style>
 <body>
@@ -230,10 +124,10 @@
                     <span class="h4 mb-0 ">Timer</span>
                 </div>
                 <ul class="nav justify-content-center h-100">
-                    <li class="nav-item h-100  "><a href="#Temporizador" class="nav-link  nav-link-style ">Temporizador</a></li>
-                    <li class="nav-item h-100 "><a href="#Cronometro" class="nav-link  nav-link-style">Cronometro</a></li>
+                    <li class="nav-item h-100  nav-item-temporizador"><a href="#Temporizador" id="itemTemporizador" class="nav-link  nav-link-style ">Temporizador</a></li>
+                    <li class="nav-item h-100 nav-item-cronometro"><a href="#Cronometro" id="itemCronometro" class="nav-link  nav-link-style">Cronometro</a></li>
                     <li class="nav-item nav-item-alarma "><a href="#Alarma" id="itemAlarma" class="nav-link  nav-link-style">Alarma</a></li>
-                    <li class="nav-item "><a href="#Formulario" class="nav-link  nav-link-style">Formulario de Contacto</a></li>
+                    <li class="nav-item nav-item-formulario"><a href="#Formulario" id="itemFormulario" class="nav-link  nav-link-style">Formulario de Contacto</a></li>
                 </ul>
 
                 <div class="dropdown" style="width: 200px;" !important >
@@ -267,136 +161,9 @@
     </nav>
     </header>
     <main class="container-fluid p-0" id="main">
-        <div class="container-fluid mt-5">
-            <!-- Aqui se cargara el contenido dinamicamente -->
-            <h1 class="display-5 text-center fw-semibold mb-0 ">Temporizador</h1>
-            <p class="lead text-center mt-0">Temporizador práctico, eficiente y gratuito en línea</p>
-
-            <div class="container-fluid contenedor bg-white  d-flex- justify-content-center flex-column align-items-center mt-5 ">
-                <div class="row d-inline-flex justify-content-center align-items-center  mt-5 w-100"   > 
-                    <div class="col-4   me-5 text-center " >
-                        <span class="number  " id="Alarma-minutes">100</span>
-                    </div>
-
-                    <div class="col-4 ms-5 text-center">
-                        <span class="points">:</span>
-                    </div>
-
-                    <div class="col-4 text-center">
-                        <span class="number " id="Alarma-seconds">50</span>
-                    </div>
-                    <div class="col-4 text-center">
-                        <span class="points">:</span>
-                    </div>
-
-                    <div class="col-4 text-center">
-                        <span class="number " id="Alarma-seconds">50</span>
-                    </div>                
-                </div>
-                <div class="d-flex justify-content-center align-items-center mt-1  w-100">
-                    <p class="setting-text pe-5 me-5" >HORAS</p>
-                    <p class="setting-text pe-5 ms-5" >MINUTOS</p>
-                    <p class="setting-text ps-5 ms-5" >SEGUNDOS</p>
-                </div>
-                <div class="row justify-content-center align-items-center mt-1">
-                    <div class="col-12 d-flex justify-content-center align-items-center gap-4 m-5  " "> 
-                        <button class="btn btn-primary w-100 rounded-5 text-white" id="startTimer"  >
-                            <i class="fa-solid fa-play me-3"></i>
-                            <span class="fw-semibold fs-5 ">Iniciar</span>
-                        </button>
-                        <button class="btn btn-primary rounded-5 text-white " id="resetTimer">
-                            <i class="fa-solid fa-arrows-rotate me-3"></i>
-                            <span class="fw-semibold fs-5">Reiniciar</span>
-                        </button>
-                        <button class="btn w-100 rounded-5 text-white " id="SettingAlarm">
-                            <i class="fa-solid fa-gear me-3"></i>
-                            <span class="fw-semibold fs-5" >Ajustes</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid d-flex flex-column  justify-content-center align-items-center contenedorSetting " >
-                <div class="row">
-                    <div class="col-md-6 d-inline-flex justify-content-center align-items-center gap-2">
-                        <span class="setting-text">HORAS</span>
-                        <select name="horas" id="horas" class="form-select w-25">
-                            <option value="1"></option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 d-inline-flex justify-content-center align-items-center gap-2">
-                        <span class="setting-text">MINUTOS</span>
-                        <select name="horas" id="minutos" class="form-select w-25">
-                        <!-- <option value="1"></option>-->
-                        </select>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12 d-inline-flex justify-content-center align-items-center gap-5 activeSound">
-                            <div class="me-5">
-                                <span class="setting-text">SONIDO</span>
-                                <label class="bar__scroll bar__scroll-message">
-                                    <input type="checkbox" id="toggleChackbox-S"> 
-                                    <span class="bar__scrol-circle"></span>
-                                </label>
-                            </div>
-                            <div class="  text-center m-0">
-                                <button class="button-dropdown  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-volume-high " style="color:black; opacity: 0.6;"></i>
-                                    <span class="fw-semibold fs-5">Sonido</span>
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Sonido 1</a></li>
-                                    <li><a class="dropdown-item" href="#">Sonido 2</a></li>
-                                    <li><a class="dropdown-item" href="#">Sonido 3</a></li>
-                                </ul>
-                            </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12 d-inline-flex justify-content-center align-items-center gap-5 activeMessage">
-                            <div class="me-5">
-                                <span class="setting-text">MENSAJE</span>
-                                <label class="bar__scroll bar__scroll-message">
-                                    <input type="checkbox" id="toggleChackbox-M">
-                                    <span class="bar__scrol-circle"></span>
-                                </label>
-                            </div>
-                            <input type="text" class="form-control " id="input--message" placeholder="Mensaje...">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container d-flex justify-content-center align-items-center mt-5 ps-1 container-info "> 
-            <div class="mt-5">
-                <img src="assets/img/main/clock_no_bg_no_text.png"  style="width: 500px;" alt="">
-            </div>
-            <div class="p-3 d-flex justify-content-center align-items-start flex-column gap-2">
-                <h2 class="display-5 fw-semibold">Sobre 123AlarmClock</h2>
-                <p class="lead " style="font-size: 17.5px;">Nuestro despertador online le será útil en una variedad de casos. Por ejemplo, si necesita despertarse a una hora establecida, para no perderse algo importante. Además, un reloj despertador puede ser útil al cocinar en el horno, en juegos deportivos y en otras ocasiones. <br> 
-                    Para configurar una alarma en línea, simplemente seleccione las horas / minutos y una señal de sonido (opcional), luego presione el botón Inicio. Puede estar seguro de que la alarma sonará a la hora exacta.</p>
-                <div class="d-inline-flex justify-content-center align-items-center gap-3">
-                    <p class="fw-semibold fs-5">Valora 123AlarmClock</p>
-                    <div class="stars ms-3 mb-3">
-                        <i class="fa-solid fa-star text-warning "></i>
-                        <i class="fa-solid fa-star text-warning "></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                        <i class="fa-solid fa-star text-warning"></i>
-                    </div>
-                    <p class="lead"><span class="fw-semibold fs-5">4.0</span> / 5 </p>
-                    <p class="lead ms-2 " style="font-size: 12px;margin-bottom:10px ;">  890</p>
-                </div>
-                <div class="d-inline-flex justify-content-center align-items-center gap-3 mb-5">
-                    <button class="btn button-info rounded-1 text-center " style="color:#2c76a1;border: 1px solid #bac0c4;">Facebook</button>
-                    <button class="btn button-info rounded-1 text-center " style="color:#8DC2F6;border: 1px solid #8DC2F6;">Twitter</button>
-                    <button class="btn button-info rounded-1 text-center " style="color:#FF7A00;border: 1px solid #FF7A00;">Reddit</button>
-                    <button class="btn button-info rounded-1 text-center " style="color:#EC2C71;border: 1px solid #EC2C71;">Pinterest</button>
-                </div>
-            </div>
-
-        </div>
+        
     </main>
-    <footer class="mt-5 text-center w-100 activeSetting-info " style="border: 3px solid #DEE2E6;">
+    <footer class="mt-5 text-center w-100  " style="border: 3px solid #DEE2E6;">
         <div class="container-fluid mt-2 d-flex flex-column gap-2 justify-content-center align-items-center pt-3">
             <p class="lead" style="font-size: 16px;">© 2025 123AlarmClock. Todos los derechos reservados.</p>
             <p class="lead" style="font-size: 16px;">Desarrollado por <a href="#" class="text-decoration-none">123AlarmClock</a></p>
@@ -404,9 +171,9 @@
         </div>
     </footer>
 
+    <script src="JavaScript/SPA.js" ></script>
     <script src="JavaScript/setting.js"></script>
-    <script src="JavaScript/date.js" defer></script>
-    <script src="JavaScript/SPA.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>

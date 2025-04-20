@@ -69,9 +69,3 @@ input[type='checkbox']:checked + .bar__scrol-circle{
     color: white !important;
 }
 
-footer{
-    position: absolute;
-    top: 1500px;
-    left: 0px;
-
-}
