@@ -1,0 +1,77 @@
+.setting-text{
+    font-size: 18px;
+    font-weight: 500;
+    color:#b2b2b2 ;
+    margin-left: 50px;
+}
+
+.bar__scroll{
+    width: 60px;
+    height: 30px;
+    background-color: #D4DAE7;
+    border-radius: 100px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.bar__scrol-circle{
+    width: 25px;
+    height: 25px;
+    background-color:white;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2px 0 0 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+.bar__scroll input {
+    display: none;
+}
+
+
+input[type='checkbox']:checked + .bar__scrol-circle{
+    transform: translateX(1.5rem);
+}
+
+.bar__scroll:has(input:checked) {
+    background-color: #3cc17a; /* Cambia el fondo cuando el checkbox esté activado */
+
+}
+
+.button-info{
+    font-size: 18px;
+    font-weight: 400;
+    width: 150px;
+}
+
+.button-info:nth-child(1):hover{
+    background-color: #1d418e;
+    color: white !important;
+}
+
+.button-info:nth-child(2):hover{
+    background-color: #8DC2F6;
+    color: white !important;
+}
+
+.button-info:nth-child(3):hover{
+    background-color: #FF7A00;
+    color: white !important;
+}
+
+.button-info:nth-child(4):hover{
+    background-color: #a31e30;
+    color: white !important;
+}
+
+footer{
+    position: absolute;
+    top: 1500px;
+    left: 0px;
+
+}

@@ -1,0 +1,100 @@
+.contenedor{
+    min-height: 500px;
+    position: absolute;
+    top: auto;
+    left: 0;
+    z-index: 50;
+    border-bottom: 4px solid #EC2C71 ;
+}
+
+#startAlarm{
+    background-color: #43D688;
+    border: none;
+    padding: 10px 0;
+}
+
+#startAlarm:hover{
+    background-color: #329560;
+}
+
+#resetAlarm{
+    background-color: #8495B6;
+    border: none;
+    padding: 10px 0;
+}
+#resetAlarm:hover{
+    background-color: #7b8aa9;
+}
+
+#SettingAlarm{
+    background-color: #EC2C71;
+    border: none;
+    padding: 10px 0;
+}
+#SettingAlarm:hover{
+    background-color:#6c1334 ;
+}
+
+.contenedorSetting{
+    position: absolute;
+    top: 95%;
+    left: 0;
+    transition: transform 0.5s linear;
+
+    z-index: 20;
+}
+
+
+.form-control{
+    width: 200px;
+    margin-right: 15px;
+    padding: 10px;
+}
+
+.form-control::placeholder{
+    color: #b2b2b2;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.dropdown:hover,
+.dropdown:active,
+.dropdown:focus{
+    border: none
+}
+.button-dropdown{
+    outline: none;
+    border: 1px solid #e1dede;
+    box-shadow: none;
+    background-color: white;
+    padding:5px;
+    text-align: center;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    color:#b2b2b2 ;
+
+}
+.activeSound, .activeMessage{
+    opacity: 0.5;
+}
+
+.activeSetting{
+    transform: translateY(-500px);
+}
+.activeSetting-info{
+    transform: translateY(300px);
+}
+.container-info{
+    position: absolute;
+    top: 90%;
+    left: 0;
+    z-index: 10;
+    margin-left: 300px;
+    transition: all 500ms linear;
+}
