@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylees/styleHeaderFooter.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-6.1.2-web/css/all.min.css">
+    <script src="JavaScript/header.js" defer ></script>
+    <link rel="stylesheet" href="stylees/styleMain.css">
+    <script src="JavaScript/main.js" defer></script>
+    <script src="JavaScript/TimerAlarmStopwatch.js"></script>
+
+</head>
+<body>
+        <header class="layout__header">
+            <div class="header__container">
+                <div class="header__content">
+                    <div class="header__brand">
+                        <div class="brand__imagen"> 
+                            <i class="fa-solid fa-clock "></i>
+                        </div>
+                        <span class="brand__title">Timer</span>
+                    </div>
+                    <ul class="header__list">
+                        <li class="list__item "><a href="#" class="list__item-timer">Timer</a></li> <!--clock-->
+                        <li class="list__item "><a href="#" class="list__item-stopWatch">Stopwatch</a></li><!--clock-->
+                        <li class="list__item"><a href="#" class="list__item-alarm">Alarm </a></li>
+                    </ul>
+                </div>
+            
+                <div class="header__lenguage">
+                    <a href="#" class="lenguage__title">
+                        <span class="lenguage__title-name">English</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <div class="lenguage__content">
+                        <a href="#" class="lenguage__title-links">
+                            <img src="assets/img/header/american-flag-5734426_1280.png" style="width: 20px;" class="lenguage__img">
+                            <span class="lenguage__name">English</span>
+                        </a>
+                        <a href="#" class="lenguage__title-links">
+                            <img src="assets/img/header/spain-162428_1280.png" style="width: 20px;" class="lenguage__img">
+                            <span class="lenguage__name">Español</span>
+                        </a>
+                        <a href="#" class="lenguage__title-links">
+                            <img src="assets/img/header/portugal-162394_1280.png" style="width: 20px;" class="lenguage__img">
+                            <span class="lenguage__name">Portugués</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="layout">
+            <main class="layout__main">
+                <h1 class="main__title">Cronometro Online</h1>
+                <p class="main__description">Cronómetro práctico, eficiente y gratuito en línea</p>
+                <div class="main__crono">
+
+                    <div class="crono__dates">
+                        <div class="dates__date">
+                            <span class="minutes__item minutes__item-timer">00</span>
+                            <span class="dates__name">MINUTOS</span>
+                        </div>
+                        <span class="point__item">:</span>
+                        <div class="dates__date">
+                            <span class="seconds__item seconds__item-timer">00</span>
+                            <span class="dates__name">SEGUNDOS</span>
+                        </div>
+                        <span class="point__item-2">.</span>
+                        <div class="dates__date">
+                            <span class="miliseconds__item">00</span>
+                        </div>
+                    </div>
+                    <div class="crono__btns">
+                        <button class="crono__btn btn__start-timer">
+                            <i class="fa-solid fa-play " id="timer-i"></i> Iniciar
+                        </button>
+                        <button class="crono__btn btn__lap-timer">
+                            <i class="fa-solid fa-circle-check"></i> Vuelta
+                        </button>
+                        <button class="crono__btn btn__reset-timer">
+                            <i class="fa-solid fa-arrows-rotate"></i> Reiniciar
+                        </button>
+                    </div>
+                </div>
+                <div class="crono__lap">
+                    <div class="lap__titles">
+                        <span class="lap__name">Vuelta</span>
+                        <span class="lap__name">Hora</span>
+                    </div>
+                    <div class="lap__date"> 
+                        
+                    </div>
+                </div>
+                <div class="main__timer">
+                    <div class="timer__date" >
+                        <div class="dates__date">
+                            <span class="minutes__item">00</span>
+                            <span class="dates__name">MINUTOS</span>
+                        </div>
+                        <span class="point__item">:</span>
+                        <div class="dates__date">
+                            <span class="seconds__item ">00</span>
+                            <span class="dates__name">SEGUNDOS</span>
+                        </div>
+                    </div>
+                    <div class="crono__btns">
+                        <button class="crono__btn">
+                            <i class="fa-solid fa-play"></i> Iniciar
+                        </button>
+                        <button class="crono__btn">
+                            <i class="fa-solid fa-circle-check"></i> Reiniciar
+                        </button>
+                        <button class="crono__btn">
+                            <i class="fa-solid fa-gear"></i>Ajustes
+                        </button>
+                    </div>
+                    <div class="timer__setting">
+                        <div class="setting__dates">
+                            <div class="dates__hours">
+                                <label for="hours" class="date__label">HORAS</label>
+                                <select name="hours" id="hours" class="dates__select"></select>
+                            </div>
+                            <div class="dates__minutes">
+                                <label for="minutes" class="date__label">MINUTOS</label>
+                                <select name="minutes" id="minutes" class="dates__select"></select>
+                            </div>
+                            <div class="dates__seconds">
+                                <label for="seconds" class="date__label">SEGUNDOS</label>
+                                <select name="seconds" id="seconds" class="dates__select"></select>
+                            </div>
+                        </div>
+                        <div class="setting__personalization">
+                            <div class="personalization__sound">
+                                <div class="sound__bar">
+                                    <span class="bar__name">SONIDO</span>
+                                    <label class="bar__scroll bar__scroll-sound bar__scroll-inactive">
+                                        <input type="checkbox">
+                                        <span class="bar__scrol-circle"></span>
+                                    </label>
+                                </div>
+                                <div class="sound__type">
+                                    <div class="sountContent__principal">
+                                        <div class="soundContent__selector">
+                                            <a href="#" class="selectSound__principal">
+                                                <source src="assets/audio/alarm-clock-1-29480.mp3">
+                                                Clasica
+                                            </a>
+                                        
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                            
+                                        </div>
+                                        <i class="fa-solid fa-play"></i>
+                                    </div>
+                                    <div class="soundType__content">
+                                        <a href="#" class="selectSound__content">
+                                            <source src="assets/audio/alarmaAuto.mp3">
+                                            Auto
+                                        </a>
+                                        <a href="#" class="selectSound__content">
+                                            <source src="assets/audio/alarmaBurbujas.mp3">
+                                            Burbujas
+                                        </a>
+                                        <a href="#" class="selectSound__content">
+                                            <source src="assets/audio/alarmaDetector.mp3">
+                                            Detector minas
+                                        </a>
+                                        <a href="#" class="selectSound__content">
+                                            <source src="assets/audio/alarmaDios.mp3">
+                                            Dios
+                                        </a>
+                                        <a href="#" class="selectSound__content">
+                                            <source src="assets/audio/alarmaEscuela.mp3">
+                                            Escuela
+                                        </a>
+                                        <a href="#" class="selectSound__content">
+                                            <source src="assets/audio/alarmaEvacuacion.mp3">
+                                            Evacuacion
+                                        </a>
+                                        <a href="#" class="selectSound__content">
+                                            <source src="assets/audio/alarmaGallo.mp3">
+                                            Gallo
+                                        </a>
+                                        <a href="#" class="selectSound__content">
+                                            <source src="assets/audio/alarmaSirrenas.mp3">
+                                            sirenas
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="personalization__message">
+                                <div class="sound__bar">
+                                    <span class="bar__name">MENSAJE</span>
+                                    <label class="bar__scroll bar__scroll-inactive">
+                                        <input type="checkbox">
+                                        <span class="bar__scrol-circle"></span>
+                                    </label>
+                                </div>
+                                <input type="text" class="message__input" placeholder="Mensaje...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                    
+                <section class="main__info">
+                    <article class="info__article">
+                        <h2 class="article__title">¿Dónde está el cronómetro en un ordenador?</h2>
+                        <p>La mayoría de los ordenadores no tienen un cronómetro incorporado. Para utilizar un cronómetro en un ordenador, tendrá que utilizar un cronómetro online gratuito. O, si tiene un dispositivo Windows 11, puede utilizar la aplicación Reloj para iniciar un cronómetro de cuenta atrás, <b>configura un temporizador</b> o <b> configurar una alarma</b> en un ordenador. En Mac tendrá que descargarse una aplicación.</p>
+                    </article>
+                    <article class="info__article">
+                        <h2 class="article__title">¿Qué es el cronómetro online?</h2>
+                        <p>La mayoría de los ordenadores no tienen un cronómetro incorporado. Para utilizar un cronómetro en un ordenador, tendrá que utilizar un cronómetro online gratuito. O, si tiene un dispositivo Windows 11, puede utilizar la aplicación Reloj para iniciar un cronómetro de cuenta atrás, <b>configura un temporizador</b> o <b> configurar una alarma</b> en un ordenador. En Mac tendrá que descargarse una aplicación.</p>
+                    </article>
+                    <article class="info__article">
+                        <h2 class="article__title">¿Cómo puedo utilizar el cronómetro online?</h2>
+                        <p>Cualquiera puede poner en marcha un cronómetro de vueltas fácilmente utilizando un cronómetro online. A continuación le explicamos cómo utilizar esta herramienta online:</p>
+                        <ul>
+                            <li>Pulse <b>Iniciar</b>  para iniciar el cronómetro.</li>
+                            <li>Pulse <b>Pausar</b>  para pausar el cronómetro.</li>
+                            <li>Pulse <b>Continuar</b> para seguir contando.</li>
+                            <li>Pulse <b>Vuelta</b> para registrar el tiempo de cada vuelta.</li>
+                            <li>Pulse <b>Reiniciar</b> para reiniciar el cronómetro.</li>
+                        </ul>
+                        <p>Además, al dividir el tiempo, puede ver la tabla con los Datos del cronómetro y consultar los tiempos de cada vuelta y otros detalles. Además, también puede guardar estos datos haciendo clic en <b>Exportar a CSV.</b></p>
+                        <p>Al hacer clic en el icono <b>Ajustes</b> de la barra del navegador, puede cambiar la configuración del cronómetro. Por ejemplo, puede seleccionar si quiere que su cronómetro funcione en <b>Segundos</b> o en <b>Milisegundos</b> con solo marcar o desmarcar la casilla que muestra los milisegundos. También puede configurar una alerta con sonido recurrente.</p>
+                        <p>Por último, puede iniciar o pausar el cronómetro cuando está marcha con solo pulsar la barra espaciadora como atajo.</p>
+                    </article>
+                    <article class="info__article">
+                        <h2 class="article__title">¿Cómo funciona el cronómetro online?</h2>
+                        <p>El cronómetro online con vueltas mide el tiempo transcurrido entre que se inicia y se para (pulsando <b>Iniciar</b> y <b>Pausar</b> ). Este cronómetro por Internet registra el tiempo transcurrido utilizando el <b>reloj</b> de su navegador y la zona horaria en la que se encuentras.</p>
+                    </article>
+                    <article class="info__article">
+                        <h2 class="article__title">¿Para qué sirve el cronómetro online?</h2>
+                        <p>El cronómetro online se puede utilizar para controlar el tiempo, llevar la cuenta y controlar el tiempo transcurrido entre eventos. Es útil para estudiar, trabajar o hacer ejercicio. Como se trata de una herramienta online gratuita, también puede utilizarse como cronómetro de pantalla completa, por lo que se puede proyectar en un aula o en una reunión para llevar la cuenta del tiempo y registrar las vueltas del trabajo realizado.</p>
+                    </article>
+                </section>
+            </main>
+            <footer>
+                <div class="footer__brand">
+                    <div class="brand__imagen"> 
+                        <i class="fa-solid fa-clock "></i>
+                    </div>
+                    <span class="brand__title">Timer</span>
+                </div>
+                <div class="footer__rights">
+                    <span>Timer321 &copy; 2025 Todos los derechos reservados.</span>
+                    <div class="right__help">
+                        <a href="#">Contacto</a>
+                    </div>
+                    <div class="right__help">
+                        <a href="#">Politica de Privacidad</a>
+                    </div>
+
+                </div>
+            </footer>
+        </div>
+
+    
+        
+</body>
+</html>

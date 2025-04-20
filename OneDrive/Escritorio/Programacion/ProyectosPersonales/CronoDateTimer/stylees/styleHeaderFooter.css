@@ -1,0 +1,253 @@
+html{
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 1.6rem;
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat,Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: #F5F7FB;
+
+    
+}
+
+
+.layout{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.layout__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    height: 6rem;
+}
+
+.header__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 8rem;
+}
+
+.header__content{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 70%;
+    height: 100%;
+    
+}
+
+.header__brand, .footer__brand{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+
+.header__brand{
+    font-size: 1.9rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 200ms linear;
+}
+
+.brand__imagen{
+    font-size: 3rem;
+}
+
+
+.header__brand:hover{
+    opacity: 0.7;
+}
+
+.header__list{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    width: 40rem;
+    
+}
+
+.list__item{
+    min-height: 100%;
+    width:100% ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+}
+
+
+
+.list__item a{
+    border: none;
+    text-decoration: none ;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: rgb(50, 49, 49);
+
+    cursor: pointer;
+    padding:2rem;
+    
+    transition:  all 100ms ease-in-out;
+}
+
+
+.list__item:nth-child(1)  > a:hover{
+    border-bottom:  4px solid #1DB3EB;
+    color: #1DB3EB;
+}
+
+.list__item:nth-child(2) > a:hover{
+    border-bottom:  4px solid #43D688;
+    color: #43D688;
+}
+.list__item:nth-child(3) > a:hover{
+    border-bottom:  4px solid #D64366;
+    color: #D64366;
+}
+
+
+.header__lenguage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+}
+
+.lenguage__title{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    text-decoration: none;
+    color: rgb(50, 49, 49);
+    font-weight: 400;
+    font-size: 1.8rem;
+    padding: 2rem;
+    width: 15rem;
+}
+
+
+.lenguage__title:hover{
+    border-bottom: 4px solid black;
+}
+
+
+
+.lenguage__content{
+    position: absolute;
+    top: 5.7%;
+    display: flex;
+    visibility:hidden;
+    opacity: 0;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: white;
+    width: 15rem;
+    padding: 2rem;
+    box-shadow: 0 0 7px white;
+    z-index: 50;
+}
+
+
+
+.lenguage__title-links{
+    text-decoration: none;
+    opacity: 0.7;
+    font-size: 1.5rem;
+    color: rgb(50, 49, 49);
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.lenguage__title-links:hover{
+    opacity: 1;
+}
+.lenguage__img{
+    width: 3rem ;
+    height: 1.5rem;
+}
+
+
+
+footer{
+    padding: 5rem;
+    border: 4px solid white;
+    position: relative;
+    inset: 0;
+    width: 100%;
+    text-align: center;
+    
+}
+
+
+.footer__brand{
+    font-size: 6rem;
+    font-weight: 600;
+}
+
+.footer__rights span {
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 1rem ;
+}
+
+.footer__rights{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.right__help{
+    border-right: 1px solid black;
+    padding: 0rem 1rem 0 1rem;
+    border-left: 1px solid black;
+
+}
+
+.right__help a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+.right__help a:hover{
+    color: grey;
+    border-bottom:  transparent;
+}
+
+
