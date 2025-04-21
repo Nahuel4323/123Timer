@@ -39,12 +39,13 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
-    document.getElementById("SettingAlarm").addEventListener("click", () => {
+    console.log(document.querySelector(".SettingAlarm"))
+    document.querySelector(".SettingAlarm").addEventListener("click", () => {
         document.querySelector(".contenedorSetting").classList.toggle("activeSetting");
         document.querySelector(".container-info").classList.toggle("activeSetting-info");
-
 })
+
+
 
 
 })
